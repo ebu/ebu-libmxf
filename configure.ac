@@ -258,8 +258,7 @@ AM_CONDITIONAL([IS_WIN32], [test x"$os" = xwin])
 dnl-----------------------------------------------------------------------------
 dnl -- Package Config
 dnl-----------------------------------------------------------------------------
-
-pkgconfigdir="\$(libdir)/pkgconfig"
+pkgconfigdir="$(pkg-config --variable pc_path pkg-config | cut -d \: -f 1)"
 AC_SUBST(pkgconfigdir)
 
 dnl add libraries to pkg config "Libs:" for static-only builds
